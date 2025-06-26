@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
+    min-height: 100vh; /* Minimum height is full viewport height */
+    background-color: #f4f4f4; /* Light gray background */
+    margin: 0; /* Remove default body margin */
+}
+
+.container {
+    background-color: #fff; /* White background for the calculator box */
+    padding: 30px; /* Inner spacing */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center; /* Center align text inside the container */
+    width: 350px; /* Fixed width for the container */
+}
+
+h1 {
+    color: #333; /* Dark gray heading color */
+    margin-bottom: 25px; /* Spacing below the heading */
+}
+
+.input-group {
+    margin-bottom: 15px; /* Spacing below each input group */
+    text-align: left; /* Align text to the left within the input group */
+}
+
+.input-group label {
+    display: block; /* Make label a block element for better spacing */
+    margin-bottom: 5px; /* Spacing below the label */
+    color: #555; /* Gray label color */
+}
+
+.input-group input[type="number"] {
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 10px; /* Inner spacing for input field */
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 4px; /* Rounded corners for input field */
+    box-sizing: border-box; /* Include padding in the element's total width */
+}
+
+button {
+    background-color: #007bff; /* Blue button background */
+    color: white; /* White text color */
+    padding: 12px 20px; /* Inner spacing for button */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    font-size: 16px; /* Font size */
+    margin-top: 15px; /* Spacing above the button */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.result-container {
+    margin-top: 25px; /* Spacing above the result section */
+    padding-top: 15px; /* Padding at the top of result section */
+    border-top: 1px solid #eee; /* Light gray border at the top */
+    text-align: left; /* Align text to the left within the result container */
+}
+
+.result-container p {
+    margin-bottom: 8px; /* Spacing below each paragraph in result */
+    font-size: 1.1em; /* Slightly larger font size */
+    color: #333; /* Dark gray text color */
+}
+
+#bmiResult {
+    font-weight: bold; /* Bold text for BMI result */
+    color: #007bff; /* Blue color for BMI result */
+}
+
+#bmiCategory {
+    font-weight: bold; /* Bold text for BMI category */
+    color: #28a745; /* Green color (default for Normal) */
+}
+
+/* Optional: Specific colors for different BMI categories */
+.underweight { color: #ffc107; } /* Yellow for Underweight */
+.normal { color: #28a745; }    /* Green for Normal */
+.overweight { color: #fd7e14; } /* Orange for Overweight */
+.obese { color: #dc3545; }      /* Red for Obese */

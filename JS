@@ -1,0 +1,56 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // Get references to HTML elements by their IDs
+    const heightInput = document.getElementById('height');
+    const weightInput = document.getElementById('weight');
+    const calculateBtn = document.getElementById('calculateBtn');
+    const bmiResultSpan = document.getElementById('bmiResult');
+    const bmiCategorySpan = document.getElementById('bmiCategory');
+
+    // Add an event listener to the calculate button
+    calculateBtn.addEventListener('click', () => {
+        // Get the values from input fields and convert them to numbers
+        const heightCm = parseFloat(heightInput.value); // Height in centimeters
+        const weightKg = parseFloat(weightInput.value); // Weight in kilograms
+
+        // Input validation: Check if inputs are valid positive numbers
+        if (isNaN(heightCm) || isNaN(weightKg) || heightCm <= 0 || weightKg <= 0) {
+            alert('Please enter valid positive numbers for height and weight.'); // Alert for invalid input
+            bmiResultSpan.textContent = ''; // Clear previous result
+            bmiCategorySpan.textContent = ''; // Clear previous category
+            bmiCategorySpan.className = ''; // Remove any previous category classes
+            return; // Exit the function
+        }
+
+        // Convert height from centimeters to meters (required for BMI formula)
+        const heightMeters = heightCm / 100;
+
+        // Calculate BMI using the formula: weight (kg) / (height (m) * height (m))
+        const bmi = weightKg / (heightMeters * heightMeters);
+
+        // Display the calculated BMI, rounded to 2 decimal places
+        bmiResultSpan.textContent = bmi.toFixed(2);
+
+        // Determine the BMI category and apply appropriate styling
+        let category = '';
+        let categoryClass = ''; // This will hold the CSS class name
+
+        if (bmi < 18.5) {
+            category = 'Underweight';
+            categoryClass = 'underweight';
+        } else if (bmi >= 18.5 && bmi < 24.9) {
+            category = 'Normal weight';
+            categoryClass = 'normal';
+        } else if (bmi >= 25 && bmi < 29.9) {
+            category = 'Overweight';
+            categoryClass = 'overweight';
+        } else {
+            category = 'Obese';
+            categoryClass = 'obese';
+        }
+        bmiCategorySpan.textContent = category; // Display the category text
+
+        // Apply the CSS class for styling the category text
+        bmiCategorySpan.className = ''; // First, clear any existing classes
+        bmiCategorySpan.classList.add(categoryClass); // Then, add the new category-specific class
+    });
+});
